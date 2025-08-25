@@ -1,5 +1,17 @@
 # Pretty Fold
 
+My fork to update 
+
+```lua
+local gutter_width = ffi.C.curwin_col_off()
+```
+to
+
+```lua
+local gutter_width = vim.fn.getwininfo(vim.api.nvim_get_current_win())[1].textoff
+```
+in the line 85 of the file [lua/pretty-fold/init.lua](./lua/pretty-fold/init.lua)
+
 > :warning: **WARNING**: Neovim v0.7 or higher is required
 >
 > There is a [0.6 branch](https://github.com/anuvyklack/pretty-fold.nvim/tree/0.6)
