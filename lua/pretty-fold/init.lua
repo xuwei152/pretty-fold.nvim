@@ -82,7 +82,7 @@ local function fold_text(config)
    ---The width of offset of a window, occupied by line number column,
    ---fold column and sign column.
    ---@type number
-   local gutter_width = ffi.C.curwin_col_off()
+   local gutter_width = vim.fn.getwininfo(vim.api.nvim_get_current_win())[1].textoff
 
    local visible_win_width = api.nvim_win_get_width(0) - gutter_width
 
