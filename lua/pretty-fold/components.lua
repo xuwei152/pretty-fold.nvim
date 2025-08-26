@@ -340,6 +340,10 @@ function M.content(config)
    -- Replace all tabs with spaces with respect to %tabstop.
    content = content:gsub('\t', string.rep(' ', vim.bo.tabstop))
 
+   if vim.bo.filetype == 'markdown' then
+     content = content:gsub('#', '')
+   end
+
    if config.keep_indentation then
       local opening_blank_substr = content:match('^%s%s+')
       if opening_blank_substr then
